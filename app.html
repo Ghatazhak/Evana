@@ -88,7 +88,7 @@
                         <input id="startValue" class="form-control" type="number" placeholder="Start Value" value=0 aria-label="Start Value">
                     </div>
                     <div class="col">
-                        <input id="endValue" class="form-control" type="number" placeholder="End Value" value=100 aria-label="EndValue">
+                        <input id="endValue" class="form-control" type="number" placeholder="End Value" value=100 aria-label="End Value">
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                         <!-- Button -->
@@ -159,5 +159,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/site.js"></script>
+    <script>
+        // Event Listener
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
+    </script>
   </body>
 </html>
