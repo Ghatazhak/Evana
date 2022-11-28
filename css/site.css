@@ -5,6 +5,8 @@
     --white-color: #e7e7e7;
 }
 
+
+
 body {
     color: var(--dark-color);
 }
@@ -53,6 +55,10 @@ footer .social>a:hover {
 
 .checklist > li i {
     color: var(--secondary-color);
+}
+
+.logoFont {
+    font-family: 'Racing Sans One', cursive;
 }
 
 /* Prism CSS */
