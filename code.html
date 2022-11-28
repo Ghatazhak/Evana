@@ -25,9 +25,12 @@
     <link rel="icon" href="/img/favicon.ico" />
     <!-- Prism -->
     <link rel="stylesheet" href="/css/prism.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -79,17 +82,76 @@
           <div class="col-lg-8">
             <pre class="line-numbers"><code class="language-javascript">
                     <!-- Code Goes here -->
-                    // Call Hello World
-                    function HelloWorld(){
-                        alert("Hello World");
-                    }
+                    // get the vales from the page
+// start or controller function
+function getValues(){
+   // get values from the page
+   let startValue = document.getElementById("startValue").value;
+   let endValue = document.getElementById("endValue").value;
+
+   // we need to validate our input
+   // parse into Integers
+   startValue = parseInt(startValue);
+   endValue = parseInt(endValue);
+
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        // we call generateNumbers
+        let numbers = generateNumbers(startValue,endValue);
+         // we call displayNumbers
+        displayNumbers(numbers);
+    } else {
+        alert("You must enter integers");
+    }  
+}
+
+// generate numbers from startValue to the endValue
+// logic function
+function generateNumbers(sValue, eValue){
+
+    let numbers = [];
+
+    for (let index = sValue; index <= eValue; index++) {
+        numbers.push(index);    
+    }
+    
+    return numbers;
+}
+
+// display the numbers and the even numbers are bold.
+// display or view function
+function displayNumbers(numbers){
+    let templateRows = "";
+    for (let index = 0; index < numbers.length; index++) {
+        let number = numbers[index];
+        if (number % 2 == 0) {
+            // Prism doesn't render correctly see source code.
+            templateRows += `<tr><td><strong>${number}</strong></td></tr>`;  
+        } else {
+          // Prism doesn't render correctly see source code.
+           templateRows += `<tr><td>${number}</td></tr>`; 
+        }
+    }
+    
+    document.getElementById("results").innerHTML = templateRows;
+
+}
                 </code>
                 </pre>
           </div>
           <div class="col-lg-4">
-            <p>The is structued in one function.</p>
-            <h5>Hello World</h5>
-            <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+            <p>EVANA is structured using three functions. getValues(), generateNumbers(), and displayNumbers().</p>
+            <h5>getValues()</h5>
+            <p>
+              This function accesses the Document Object Model or DOM and gets the start and end values entered by the user. The function then validates what the user entered as being valid integers. All the other functions are called from inside this function.
+            </p>
+            <h5>generateNumbers()</h5>
+            <p>
+              This function loops using the start and end numbers to control the loop and adds the numbers to an array. It then returns the array.
+            </p>
+            <h5>displayNumbers()</h5>
+            <p>
+              This function takes the array of numbers and inserts them into a table in the DOM. It also bolds all the even numbers.
+            </p>
           </div>
         </div>
       </div>
