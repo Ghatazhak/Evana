@@ -10,13 +10,13 @@ function getValues(){
    startValue = parseInt(startValue);
    endValue = parseInt(endValue);
 
-    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+    if ((Number.isInteger(startValue) && Number.isInteger(endValue)) && startValue < endValue && endValue <= 200) {
         // we call generateNumbers
         let numbers = generateNumbers(startValue,endValue);
          // we call displayNumbers
         displayNumbers(numbers);
     } else {
-        alert("You must enter integers");
+        alert("You must enter integers and the start value must be less than the end value. Also the end value is restricted to 200 or lower");
     }  
 }
 
